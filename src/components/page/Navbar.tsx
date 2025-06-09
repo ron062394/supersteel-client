@@ -78,9 +78,13 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between py-4">
+        <div className="flex items-center justify-between py-2 sm:py-3 md:py-4 min-h-[32px] sm:min-h-[56px] md:min-h-[64px]">
           <Link to="/">
-            <img src="/logo_supersteel.png" alt="Supersteel" className="h-8" />
+            <img
+              src="/logo_supersteel.png"
+              alt="Supersteel"
+              className="h-6 sm:h-8 md:h-10"
+            />
           </Link>
 
           <nav className="hidden lg:flex space-x-6">
