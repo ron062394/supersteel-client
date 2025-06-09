@@ -1,11 +1,10 @@
-import Hero from './homepage/Hero.tsx';
-
+import Hero from './homepage/Hero';
+import Solutions from './homepage/Solutions';
 const Homepage = () => {
   return (
     <div className="homepage">
-        {/* Hero Section */}
         <Hero />
-
+        <Solutions />
     </div>
   );
 };
