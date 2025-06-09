@@ -38,7 +38,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-gray-950 to-black relative overflow-hidden">
+    <div className="min-h-[70vh] sm:min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-gray-950 to-black relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         <AnimatePresence mode="wait">
           <motion.div
