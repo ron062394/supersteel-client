@@ -100,7 +100,7 @@ const Solutions = () => {
           animate={controls}
           variants={fadeInUp}
         >
-          <div className="md:w-1/3 mb-4 md:mb-0 md:mr-8 w-full">
+          <div className="sm:hidden md:w-1/3 mb-4 md:mb-0 md:mr-8 w-full">
             <ul className="flex flex-wrap gap-x-1 gap-y-2 justify-center mb-4 px-1">
               {solutions.map((solution, index) => (
                 <li key={solution.title}>
@@ -117,6 +117,29 @@ const Solutions = () => {
                     {activeTab === index && <FaChevronRight className="text-base" />}
                   </button>
                 </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="hidden sm:block md:w-1/3 mb-8 md:mb-0 md:mr-8">
+            <ul className="space-y-2">
+              {solutions.map((solution, index) => (
+                <motion.li key={solution.title} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <button
+                    className={`w-full text-left px-4 py-2 rounded-lg font-semibold transition-all duration-300 flex items-center justify-between ${
+                      activeTab === index
+                        ? 'bg-[#F71F27] text-white'
+                        : 'bg-white text-gray-700 hover:bg-gray-100 shadow-md'
+                    }`}
+                    onClick={() => setActiveTab(index)}
+                  >
+                    <span className="flex items-center">
+                      <solution.icon className="mr-2" />
+                      {solution.title}
+                    </span>
+                    <FaChevronRight className={`transition-transform duration-300 ${activeTab === index ? 'rotate-90' : ''}`} />
+                  </button>
+                </motion.li>
               ))}
             </ul>
           </div>
