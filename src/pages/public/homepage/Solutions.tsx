@@ -84,10 +84,10 @@ const Solutions = () => {
   ], []);
 
   return (
-    <div ref={ref} className="flex flex-col items-center justify-center bg-white relative overflow-hidden py-20" id='roofing-services'>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div ref={ref} className="flex flex-col items-center justify-center bg-white relative overflow-hidden py-8 sm:py-20" id='roofing-services'>
+      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 relative z-10">
         <motion.h2 
-          className="text-5xl font-bold text-center text-gray-900 mb-12"
+          className="text-2xl sm:text-4xl md:text-5xl font-bold text-center text-gray-900 mb-6 sm:mb-12"
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
@@ -100,25 +100,23 @@ const Solutions = () => {
           animate={controls}
           variants={fadeInUp}
         >
-          <div className="md:w-1/3 mb-8 md:mb-0 md:mr-8">
-            <ul className="space-y-2">
+          <div className="md:w-1/3 mb-4 md:mb-0 md:mr-8 w-full">
+            <ul className="flex flex-wrap gap-x-1 gap-y-2 justify-center mb-4 px-1">
               {solutions.map((solution, index) => (
-                <motion.li key={solution.title} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <li key={solution.title}>
                   <button
-                    className={`w-full text-left px-4 py-2 rounded-lg font-semibold transition-all duration-300 flex items-center justify-between ${
-                      activeTab === index
+                    className={`px-2 py-1 rounded-full font-semibold text-xs transition-all duration-300 flex items-center gap-1
+                      ${activeTab === index
                         ? 'bg-[#F71F27] text-white'
-                        : 'bg-white text-gray-700 hover:bg-gray-100 shadow-md'
-                    }`}
+                        : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-100'}
+                    `}
                     onClick={() => setActiveTab(index)}
                   >
-                    <span className="flex items-center">
-                      <solution.icon className="mr-2" />
-                      {solution.title}
-                    </span>
-                    <FaChevronRight className={`transition-transform duration-300 ${activeTab === index ? 'rotate-90' : ''}`} />
+                    <solution.icon className="text-base" />
+                    {solution.title}
+                    {activeTab === index && <FaChevronRight className="text-base" />}
                   </button>
-                </motion.li>
+                </li>
               ))}
             </ul>
           </div>
@@ -129,21 +127,21 @@ const Solutions = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="md:w-2/3 bg-white rounded-xl shadow-lg overflow-hidden p-6 border border-gray-200"
+              className="md:w-2/3 bg-white rounded-xl shadow-lg overflow-hidden p-3 sm:p-6 border border-gray-200"
             >
               <div className="flex flex-col">
-                <motion.div className="mb-4" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <motion.div className="mb-3 sm:mb-4" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <img
                     src={solutions[activeTab].image}
                     alt={solutions[activeTab].title}
-                    className="w-full h-64 object-cover rounded-lg transition-transform duration-300"
+                    className="w-full h-40 sm:h-64 object-cover rounded-lg transition-transform duration-300"
                   />
                 </motion.div>
                 <div>
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">{solutions[activeTab].title}</h3>
-                  <p className="text-gray-600 mb-6">{solutions[activeTab].description}</p>
+                  <h3 className="text-lg sm:text-2xl font-semibold text-gray-900 mb-2 sm:mb-4">{solutions[activeTab].title}</h3>
+                  <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">{solutions[activeTab].description}</p>
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <Link to="/contact" className="bg-[#F71F27] text-white px-6 py-2 rounded-full font-semibold hover:bg-red-700 transition duration-300 inline-flex items-center">
+                    <Link to="/contact" className="bg-[#F71F27] text-white px-4 py-2 sm:px-6 rounded-full font-semibold hover:bg-red-700 transition duration-300 inline-flex items-center text-sm sm:text-base">
                       Contact Us
                       <FaChevronRight className="ml-2" />
                     </Link>
