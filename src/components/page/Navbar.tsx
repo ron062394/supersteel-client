@@ -4,12 +4,38 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaFileAlt, FaHardHat, FaBars, FaTimes, FaBriefcase } from 'react-icons/fa';
 import { Button } from '@/components';
 
+// Main navigation items
 const NAV_ITEMS = [
   { name: 'Home', path: '/' },
   { name: 'Products', path: '/products' },
   { name: 'About Us', path: '/about' },
   { name: 'Contact Us', path: '/contact' },
   { name: 'Careers', path: '/careers' },
+];
+
+// Mobile menu action buttons
+const MOBILE_ACTIONS = [
+  {
+    name: 'Contact Us',
+    path: '/contact',
+    icon: <FaHardHat className="inline mr-2" />,
+    className:
+      'block mt-3 bg-white text-gray-800 px-4 py-2 rounded-full font-bold text-sm hover:bg-gray-200 transition duration-300 shadow-lg text-center',
+  },
+  {
+    name: 'Get a Quotation',
+    path: '/quotation-form',
+    icon: <FaFileAlt className="inline mr-2" />,
+    className:
+      'block mt-3 bg-[#F71F27] text-white px-4 py-2 rounded-full font-bold text-sm hover:bg-red-600 transition duration-300 shadow-lg text-center',
+  },
+  {
+    name: 'Join Our Team',
+    path: '/careers',
+    icon: <FaBriefcase className="inline mr-2" />,
+    className:
+      'block mt-3 bg-blue-500 text-white px-4 py-2 rounded-full font-bold text-sm hover:bg-blue-600 transition duration-300 shadow-lg text-center',
+  },
 ];
 
 const fadeInUp = {
@@ -45,44 +71,6 @@ const Navbar = () => {
     setIsMobileMenuOpen((open) => !open);
   }, []);
 
-
-  // Render nav links for desktop
-  const renderDesktopNavLinks = () =>
-    navItems.map((item, index) => (
-      <motion.div
-        key={item.name}
-        initial="hidden"
-        animate="visible"
-        variants={fadeInUp}
-        transition={{ delay: index * 0.1 }}
-        className="mx-2"
-      >
-        <Link
-          to={item.path}
-          className={`no-underline text-lg font-medium transition duration-300 hover:text-[#F71F27] ${
-            location.pathname === item.path ? 'text-[#F71F27]' : 'text-white'
-          }`}
-        >
-          {item.name}
-        </Link>
-      </motion.div>
-    ));
-
-  // Render nav links for mobile
-  const renderMobileNavLinks = () =>
-    navItems.map((item) => (
-      <Link
-        key={item.name}
-        to={item.path}
-        className={`block py-2 no-underline text-lg font-medium transition duration-300 hover:text-[#F71F27] ${
-          location.pathname === item.path ? 'text-[#F71F27]' : 'text-white'
-        }`}
-        onClick={() => setIsMobileMenuOpen(false)}
-      >
-        {item.name}
-      </Link>
-    ));
-
   return (
     <header
       className={`fixed top-0 left-0 w-full shadow-lg z-50 transition-all duration-300 ${
@@ -95,13 +83,33 @@ const Navbar = () => {
             <img src="/logo_supersteel.png" alt="Supersteel" className="h-8" />
           </Link>
 
-          <nav className="hidden md:flex space-x-6">{renderDesktopNavLinks()}</nav>
+          <nav className="hidden lg:flex space-x-6">
+            {navItems.map((item, index) => (
+              <motion.div
+                key={item.name}
+                initial="hidden"
+                animate="visible"
+                variants={fadeInUp}
+                transition={{ delay: index * 0.1 }}
+                className="mx-2"
+              >
+                <Link
+                  to={item.path}
+                  className={`no-underline text-sm font-medium transition duration-300 hover:text-[#F71F27] ${
+                    location.pathname === item.path ? 'text-[#F71F27]' : 'text-white'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              </motion.div>
+            ))}
+          </nav>
 
           <motion.div
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
-            className="hidden md:flex items-center"
+            className="hidden lg:flex items-center"
           >
             <Button
               onClick={() => navigate('/contact')}
@@ -121,7 +129,7 @@ const Navbar = () => {
           </motion.div>
 
           <button
-            className="md:hidden text-white"
+            className="lg:hidden text-white"
             onClick={handleMobileMenuToggle}
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
@@ -133,38 +141,36 @@ const Navbar = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="md:hidden bg-gray-900"
+            className="lg:hidden bg-gray-900"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
           >
             <div className="container mx-auto px-4 py-3">
-              {renderMobileNavLinks()}
-              <Link
-                to="/contact"
-                className="block mt-3 bg-white text-gray-800 px-4 py-2 rounded-full font-bold text-sm hover:bg-gray-200 transition duration-300 shadow-lg text-center"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <FaHardHat className="inline mr-2" />
-                Contact Us
-              </Link>
-              <Link
-                to="/quotation-form"
-                className="block mt-3 bg-[#F71F27] text-white px-4 py-2 rounded-full font-bold text-sm hover:bg-red-600 transition duration-300 shadow-lg text-center"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <FaFileAlt className="inline mr-2" />
-                Get a Quotation
-              </Link>
-              <Link
-                to="/careers"
-                className="block mt-3 bg-blue-500 text-white px-4 py-2 rounded-full font-bold text-sm hover:bg-blue-600 transition duration-300 shadow-lg text-center"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <FaBriefcase className="inline mr-2" />
-                Join Our Team
-              </Link>
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className={`block py-2 no-underline text-lg font-medium transition duration-300 hover:text-[#F71F27] ${
+                    location.pathname === item.path ? 'text-[#F71F27]' : 'text-white'
+                  }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              {MOBILE_ACTIONS.map((action) => (
+                <Link
+                  key={action.name}
+                  to={action.path}
+                  className={action.className}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {action.icon}
+                  {action.name}
+                </Link>
+              ))}
             </div>
           </motion.div>
         )}

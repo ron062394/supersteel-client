@@ -22,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
-      className={`block mt-3 px-4 py-2 rounded-full font-bold text-sm transition duration-300 shadow-lg text-center cursor-pointer flex items-center justify-center ${variantClass} ${className}`}
+      className={`block mt-3 px-4 py-1 rounded-full font-bold text-sm transition duration-300 shadow-lg text-center cursor-pointer flex items-center justify-center ${variantClass} ${className}`}
       onClick={onClick}
     >
       {icon && <span className="inline mr-2">{icon}</span>}
