@@ -67,7 +67,7 @@ const Hero = () => {
               variants={fadeInUp}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-8xl font-extrabold mb-4 tracking-tight">
+              <h1 className="text-4xl sm:text-6xl md:text-8xl font-extrabold mb-4 tracking-tight">
                 <span className="text-[#F71F27] inline-block transform hover:scale-105 transition-transform duration-300">
                   {slides[currentSlide].title.split(' ')[0]}
                 </span>
@@ -75,11 +75,13 @@ const Hero = () => {
                   {slides[currentSlide].title.split(' ')[1] || ''}
                 </span>
               </h1>
-              <p className="text-3xl text-gray-300 mb-12">{slides[currentSlide].subtitle}</p>
+              <p className="text-lg sm:text-2xl md:text-3xl text-gray-300 mb-8 sm:mb-12">
+                {slides[currentSlide].subtitle}
+              </p>
             </motion.div>
           </AnimatePresence>
           <motion.p
-            className="text-2xl text-gray-300 mb-12 max-w-3xl mx-auto"
+            className="text-base sm:text-xl md:text-2xl text-gray-300 mb-8 sm:mb-12 max-w-xs sm:max-w-2xl md:max-w-3xl mx-auto"
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
@@ -89,7 +91,7 @@ const Hero = () => {
             Discover our premium rollforming plant services and roofing solutions.
           </motion.p>
           <motion.div
-            className="flex flex-wrap justify-center gap-6 mb-12"
+            className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 mb-8 sm:mb-12"
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
@@ -97,14 +99,14 @@ const Hero = () => {
           >
             <Link
               to="/products"
-              className="bg-white text-gray-800 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-200 transition duration-300 shadow-lg flex items-center transform hover:scale-105"
+              className="bg-white text-gray-800 px-6 py-3 sm:px-8 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-gray-200 transition duration-300 shadow-lg flex items-center justify-center transform hover:scale-105 w-full sm:w-auto"
             >
               <FaIndustry className="mr-2" />
               Explore Products
             </Link>
             <Link
               to="/contact"
-              className="bg-[#F71F27] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-red-600 transition duration-300 shadow-lg flex items-center transform hover:scale-105"
+              className="bg-[#F71F27] text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-red-600 transition duration-300 shadow-lg flex items-center justify-center transform hover:scale-105 w-full sm:w-auto"
             >
               <FaHardHat className="mr-2" />
               Contact Us
