@@ -116,7 +116,7 @@ const Navbar = () => {
             className="hidden lg:flex items-center"
           >
             <Button
-              onClick={() => navigate('/contact')}
+              onClick={() => navigate('/contact-us')}
               variant="secondary"
               icon={<FaHardHat />}
               className="mr-2"
