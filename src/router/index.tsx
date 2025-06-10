@@ -3,6 +3,7 @@ import Homepage from '../pages/public/Homepage';
 import { Navbar, Footer } from '@/components';
 import AboutUs from '@/pages/public/AboutUs';
 import ContactUs from '@/pages/public/ContactUs';
+import Careers from '@/pages/public/Careers';
 
 function AppRouter() {
   return (
@@ -12,6 +13,7 @@ function AppRouter() {
         <Route path="/" element={<Homepage />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/careers" element={<Careers />} />
       </Routes>
       <Footer />
     </Router>
