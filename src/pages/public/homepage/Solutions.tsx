@@ -3,6 +3,15 @@ import { Link } from 'react-router-dom';
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import { FaHardHat, FaHome, FaRecycle, FaRuler, FaWrench, FaDoorOpen, FaSolarPanel, FaLeaf, FaChevronRight } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
+import type { IconType } from 'react-icons';
+
+interface Solution {
+  title: string;
+  description: string;
+  icon: IconType;
+  image: string;
+  link: string;
+}
 
 const Solutions = () => {
   const controls = useAnimation();
@@ -11,7 +20,7 @@ const Solutions = () => {
     triggerOnce: true,
   });
 
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState<number>(0);
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
@@ -24,7 +33,7 @@ const Solutions = () => {
     }
   }, [controls, inView]);
 
-  const solutions = useMemo(() => [
+  const solutions: Solution[] = useMemo(() => [
     {
       title: "Roofing Design and Installation",
       description: "From planning to execution, we provide comprehensive roofing solutions. Our expert team ensures that every aspect of your roofing project is handled with precision and care, resulting in a durable and aesthetically pleasing roof that protects your home for years to come.",

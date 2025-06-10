@@ -1,6 +1,7 @@
 import Hero from './homepage/Hero';
 import Solutions from './homepage/Solutions';
 import RoofModel from './homepage/RoofModel';
+import Flagship from './homepage/Flagship';
 
 const Homepage = () => {
   return (
@@ -8,6 +9,7 @@ const Homepage = () => {
         <Hero />
         <Solutions />
         <RoofModel />
+        <Flagship />
     </div>
   );
 };
