@@ -3,9 +3,14 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaIndustry, FaHardHat, FaChevronDown } from 'react-icons/fa';
 
+interface Slide {
+  title: string;
+  subtitle: string;
+}
+
 const Hero = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const slides = [
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const slides: Slide[] = [
     { title: "SUPERSTEEL", subtitle: "Forging the Future" },
     { title: "INNOVATION", subtitle: "In Every Sheet" },
     { title: "STRENGTH", subtitle: "You Can Rely On" }
@@ -23,14 +28,13 @@ const Hero = () => {
     visible: { opacity: 1, y: 0 },
   };
 
-  const backgroundImages = [
+  const backgroundImages: string[] = [
     "url('/store.png')",
     "url('https://w0.peakpx.com/wallpaper/21/875/HD-wallpaper-roof-tiles-texture-gray-tile-roof-tile-background-roof-textures-for-roofing-roof-texture.jpg')",
     "url('https://images.unsplash.com/photo-1587293852726-70cdb56c2866?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80')"
   ];
 
-  // Fix: Check if element exists before calling scrollIntoView
-  const handleChevronClick = () => {
+  const handleChevronClick = (): void => {
     const el = document.getElementById('roofing-services');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
@@ -112,7 +116,6 @@ const Hero = () => {
               Contact Us
             </Link>
           </motion.div>
-          {/* Removed empty motion.div */}
         </div>
       </div>
       <motion.div
