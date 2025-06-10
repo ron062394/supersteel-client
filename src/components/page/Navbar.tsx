@@ -8,8 +8,8 @@ import { Button } from '@/components';
 const NAV_ITEMS = [
   { name: 'Home', path: '/' },
   { name: 'Products', path: '/products' },
-  { name: 'About Us', path: '/about' },
-  { name: 'Contact Us', path: '/contact' },
+  { name: 'About Us', path: '/about-us' },
+  { name: 'Contact Us', path: '/contact-us' },
   { name: 'Careers', path: '/careers' },
 ];
 
@@ -17,7 +17,7 @@ const NAV_ITEMS = [
 const MOBILE_ACTIONS = [
   {
     name: 'Contact Us',
-    path: '/contact',
+    path: '/contact-us',
     icon: <FaHardHat className="inline mr-2" />,
     className:
       'block mt-3 bg-white text-gray-800 px-4 py-2 rounded-full font-bold text-sm hover:bg-gray-200 transition duration-300 shadow-lg text-center',
