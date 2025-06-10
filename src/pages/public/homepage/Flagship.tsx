@@ -1,11 +1,18 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import { FaIndustry, FaHardHat, FaChevronDown, FaArrowRight } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
 
+interface FlagshipProduct {
+  name: string;
+  description: string;
+  image: string;
+  features: string[];
+}
+
 const Flagship = () => {
-  const [currentProduct, setCurrentProduct] = useState(0);
+  const [currentProduct, setCurrentProduct] = useState<number>(0);
   const controls = useAnimation();
   const [ref, inView] = useInView({
     threshold: 0.1,
@@ -17,7 +24,7 @@ const Flagship = () => {
     visible: { opacity: 1, y: 0 },
   };
 
-  const flagshipProducts = [
+  const flagshipProducts: FlagshipProduct[] = [
     { 
       name: 'MasterPiece', 
       description: 'Our premium roofing solution with unmatched durability and weather resistance.',
@@ -47,9 +54,16 @@ const Flagship = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentProduct((prev) => (prev + 1) % flagshipProducts.length);
-    }, 8000);  // Changed from 5000 to 8000 milliseconds (8 seconds)
+    }, 8000);
     return () => clearInterval(interval);
-  }, []);
+  }, [flagshipProducts.length]);
+
+  const handleScrollToProfiles = (): void => {
+    const element = document.getElementById('roofing-profiles');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div ref={ref} className="min-h-screen py-20 flex flex-col items-center justify-center bg-white relative overflow-hidden">
@@ -122,7 +136,7 @@ const Flagship = () => {
             ))}
           </div>
           <motion.div
-            className="relative h-[700px]" // Increased height
+            className="relative h-[700px]"
             initial="hidden"
             animate={controls}
             variants={fadeInUp}
@@ -137,7 +151,7 @@ const Flagship = () => {
                 animate={{ 
                   opacity: index === currentProduct ? 1 : 0,
                   y: index === currentProduct ? [0, -10, 0] : 20,
-                  scale: index === currentProduct ? 1.2 : 1 // Added scale
+                  scale: index === currentProduct ? 1.2 : 1
                 }}
                 transition={{ 
                   duration: 1.5, 
@@ -147,7 +161,7 @@ const Flagship = () => {
                     duration: 2,
                     ease: "easeInOut"
                   },
-                  scale: { duration: 0.5 } // Transition for scale
+                  scale: { duration: 0.5 }
                 }}
               />
             ))}
@@ -175,7 +189,7 @@ const Flagship = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2, duration: 1, repeat: Infinity, repeatType: 'reverse' }}
-        onClick={() => document.getElementById('roofing-profiles')?.scrollIntoView({ behavior: 'smooth' })}
+        onClick={handleScrollToProfiles}
       >
         <FaChevronDown className="text-gray-900 text-3xl" />
       </motion.div>
