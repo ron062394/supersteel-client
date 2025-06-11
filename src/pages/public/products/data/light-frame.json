@@ -1,0 +1,122 @@
+[
+  {
+    "id": "501",
+    "name": "C Purlin",
+    "category": "Light Frames",
+    "type": "Light Frames",
+    "images": [
+      "./images/products/light-frame/metalfurring1.png",
+      "./images/products/light-frame/metalfurring1.png",
+      "./images/products/light-frame/metalfurring1.png"
+    ],
+    "features": [
+      "Lightweight and durable",
+      "Corrosion-resistant",
+      "Easy to install"
+    ],
+    "detailedDescription": {
+      "material": "Aluminum",
+      "thickness": "0.5 inches",
+      "length": "10 feet",
+      "width": "4 inches",
+      "finish": "Powder-coated"
+    },
+    "description": "The C Purlin is designed for strength and efficiency, making it ideal for various construction applications."
+  },
+  {
+    "id": "502",
+    "name": "Metal Furring & Wall Angle",
+    "category": "Light Frames",
+    "type": "Light Frames",
+    "images": [
+      "./images/products/light-frame/metalfurring1.png",
+      "./images/products/light-frame/metalfurring1.png",
+      "./images/products/light-frame/metalfurring1.png"
+    ],
+    "features": [
+      "Lightweight and durable",
+      "Corrosion-resistant",
+      "Easy to install"
+    ],
+    "detailedDescription": {
+      "material": "Aluminum",
+      "thickness": "0.5 inches",
+      "length": "10 feet",
+      "width": "4 inches",
+      "finish": "Powder-coated"
+    },
+    "description": "The Metal Furring & Wall Angle is designed for strength and efficiency, making it ideal for various construction applications."
+  },
+  {
+    "id": "503",
+    "name": "Angle Bar",
+    "category": "Light Frames",
+    "type": "Light Frames",
+    "images": [
+      "./images/products/light-frame/metalfurring1.png",
+      "./images/products/light-frame/metalfurring1.png",
+      "./images/products/light-frame/metalfurring1.png"
+    ],
+    "features": [
+      "Lightweight and durable",
+      "Corrosion-resistant",
+      "Easy to install"
+    ],
+    "detailedDescription": {
+      "material": "Aluminum",
+      "thickness": "0.5 inches",
+      "length": "10 feet",
+      "width": "4 inches",
+      "finish": "Powder-coated"
+    },
+    "description": "The Angle Bar is designed for strength and efficiency, making it ideal for various construction applications."
+  },
+  {
+    "id": "504",
+    "name": "Channel Bar",
+    "category": "Light Frames",
+    "type": "Light Frames",
+    "images": [
+      "./images/products/light-frame/metalfurring1.png",
+      "./images/products/light-frame/metalfurring1.png",
+      "./images/products/light-frame/metalfurring1.png"
+    ],
+    "features": [
+      "Lightweight and durable",
+      "Corrosion-resistant",
+      "Easy to install"
+    ],
+    "detailedDescription": {
+      "material": "Aluminum",
+      "thickness": "0.5 inches",
+      "length": "10 feet",
+      "width": "4 inches",
+      "finish": "Powder-coated"
+    },
+    "description": "The Channel Bar is designed for strength and efficiency, making it ideal for various construction applications."
+  },
+  {
+    "id": "505",
+    "name": "Double U Clip",
+    "category": "Light Frames",
+    "type": "Light Frames",
+    "images": [
+      "./images/products/light-frame/metalfurring1.png",
+      "./images/products/light-frame/metalfurring1.png",
+      "./images/products/light-frame/metalfurring1.png"
+    ],
+    "features": [
+      "Lightweight and durable",
+      "Corrosion-resistant",
+      "Easy to install"
+    ],
+    "detailedDescription": {
+      "material": "Aluminum",
+      "thickness": "0.5 inches",
+      "length": "10 feet",
+      "width": "4 inches",
+      "finish": "Powder-coated"
+    },
+    "description": "The Double U Clip is designed for strength and efficiency, making it ideal for various construction applications."
+  }
+]

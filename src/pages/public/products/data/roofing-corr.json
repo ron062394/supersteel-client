@@ -1,0 +1,29 @@
+[
+  {
+    "id": "301",
+    "name": "Super Corr",
+    "type": "Corrugated",
+    "category": "Roofing",
+    "description": "Our Premium Metal Roofing offers durability and style, perfect for any home.",
+    "images": [
+      "./images/products/corrugated/corr_1.jpg",
+      "./images/products/corrugated/corr_2.jpg",
+      "./images/products/corrugated/corr_3.jpg"
+    ],
+    "features": [
+      "Corrosion-resistant",
+      "Energy-efficient",
+      "Available in multiple colors"
+    ],
+    "detailedDescription": {
+      "thickness": ["0.4mm", "0.5mm"],
+      "width": "1.2m",
+      "length": "Custom length",
+      "substrate": "Galvanized Steel",
+      "paintSystem": "Polyester Coating",
+      "coatingThickness": "25 microns",
+      "colors": ["Red", "Blue", "Green", "Gray", "White", "Brown", "Beige", "Foam Green", "Apple Green", "Terracotta", "G.I."]
+    },
+    "colors": ["Red", "Blue", "Green", "G.Is."]
+  }
+]

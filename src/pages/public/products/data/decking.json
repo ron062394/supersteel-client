@@ -1,0 +1,56 @@
+[
+  {
+    "id": "401",
+    "name": "Super Web Deck",
+    "category": "Construction Material",
+    "type": "Decking",
+    "images": [
+      "./images/products/decking/web_deck_01.jpg",
+      "./images/products/decking/web_deck_02.jpg",
+      "./images/products/decking/web_deck_03.jpg"
+    ],
+    "features": [
+      "Weather-resistant",
+      "Low maintenance",
+      "Eco-friendly materials",
+      "High load capacity",
+      "Corrosion-resistant"
+    ],
+    "detailedDescription": {
+      "material": "Galvanized Steel",
+      "thickness": "1.5 inches",
+      "width": "6 inches",
+      "length": "Custom length",
+      "surfaceTexture": "Textured",
+      "maintenanceRequirements": "Clean with soap and water"
+    },
+    "description": "Our Premium Web Deck is designed for durability and style, perfect for any outdoor space, providing a robust and reliable surface."
+  },
+  {
+    "id": "402",
+    "name": "Super Flat Deck",
+    "category": "Construction Material",
+    "type": "Decking",
+    "images": [
+      "./images/products/decking/flat_deck_01.jpg",
+      "./images/products/decking/flat_deck_02.jpg",
+      "./images/products/decking/flat_deck_03.jpg"
+    ],
+    "features": [
+      "Weather-resistant",
+      "Low maintenance",
+      "Eco-friendly materials",
+      "High load capacity",
+      "Corrosion-resistant"
+    ],
+    "detailedDescription": {
+      "material": "Galvanized Steel",
+      "thickness": "1.5 inches",
+      "width": "6 inches",
+      "length": "Custom length",
+      "surfaceTexture": "Textured",
+      "maintenanceRequirements": "Clean with soap and water"
+    },
+    "description": "Our Premium Flat Deck is designed for durability and style, perfect for any outdoor space, providing a robust and reliable surface."
+  }
+]

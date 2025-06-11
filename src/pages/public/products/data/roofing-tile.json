@@ -1,0 +1,164 @@
+[
+  {
+    "id": "101",
+    "name": "MasterPiece",
+    "type": "Tilespan",
+    "category": "Roofing",
+    "description": "Our MasterPiece Metal Roofing offers durability and style, perfect for any home.",
+    "images": [
+      "./images/products/tilespan/masterpiece.png",
+      "./images/products/tilespan/masterpiece.png",
+      "./images/products/tilespan/masterpiece.png"
+    ],
+    "features": [
+      "Corrosion-resistant",
+      "Energy-efficient",
+      "Available in multiple colors"
+    ],
+    "detailedDescription": {
+      "thickness": ["0.4mm", "0.5mm"],
+      "width": "1005 mm",
+      "length": "Custom length",
+      "substrate": "Galvanized Steel",
+      "paintSystem": "Polyester Coating",
+      "coatingThickness": "25 microns",
+      "colors": ["Red", "Blue", "Green", "Gray", "White", "Brown", "Beige", "Foam Green", "Apple Green", "Terracotta", "G.I."]
+    },
+    "colors": ["Red", "Blue", "Green", "Gray", "White", "Brown", "Beige", "Foam Green", "Apple Green", "Terracotta", "G.I."]
+  },
+  {
+    "id": "102",
+    "name": "MasterPiece PRIME",
+    "type": "Tilespan",
+    "category": "Roofing",
+    "description": "Our MasterPiece PRIME Metal Roofing offers durability and style, perfect for any home.",
+    "images": [
+      "./images/products/tilespan/masterpiece.png",
+      "./images/products/tilespan/masterpiece.png",
+      "./images/products/tilespan/masterpiece.png"
+    ],
+    "features": [
+      "Corrosion-resistant",
+      "Energy-efficient",
+      "Available in multiple colors"
+    ],
+    "detailedDescription": {
+      "thickness": ["0.4mm", "0.5mm"],
+      "width": "1005 mm",
+      "length": "Custom length",
+      "substrate": "Galvanized Steel",
+      "paintSystem": "Polyester Coating",
+      "coatingThickness": "25 microns",
+      "colors": ["Red", "Blue", "Green", "Gray", "White", "Brown", "Beige", "Foam Green", "Apple Green", "Terracotta", "G.I."]
+    },
+    "colors": ["Red", "Blue", "Green", "Gray", "White", "Brown", "Beige", "Foam Green", "Apple Green", "Terracotta", "G.I."]
+  },
+  {
+    "id": "103",
+    "name": "GrandMaster",
+    "type": "Tilespan",
+    "category": "Roofing",
+    "description": "Our GrandMaster Metal Roofing offers durability and style, perfect for any home.",
+    "images": [
+      "./images/products/tilespan/masterpiece.png",
+      "./images/products/tilespan/masterpiece.png",
+      "./images/products/tilespan/masterpiece.png"
+    ],
+    "features": [
+      "Corrosion-resistant",
+      "Energy-efficient",
+      "Available in multiple colors"
+    ],
+    "detailedDescription": {
+      "thickness": ["0.4mm", "0.5mm"],
+      "width": "1005 mm",
+      "length": "Custom length",
+      "substrate": "Galvanized Steel",
+      "paintSystem": "Polyester Coating",
+      "coatingThickness": "25 microns",
+      "colors": ["Red", "Blue", "Green", "Gray", "White", "Brown", "Beige", "Foam Green", "Apple Green", "Terracotta", "G.I."]
+    },
+    "colors": ["Red", "Blue", "Green", "Gray", "White", "Brown", "Beige", "Foam Green", "Apple Green", "Terracotta", "G.I."]
+  },
+  {
+    "id": "104",
+    "name": "Royalty",
+    "type": "Tilespan",
+    "category": "Roofing",
+    "description": "Our Royalty Metal Roofing offers durability and style, perfect for any home.",
+    "images": [
+      "./images/products/tilespan/masterpiece.png",
+      "./images/products/tilespan/masterpiece.png",
+      "./images/products/tilespan/masterpiece.png"
+    ],
+    "features": [
+      "Corrosion-resistant",
+      "Energy-efficient",
+      "Available in multiple colors"
+    ],
+    "detailedDescription": {
+      "thickness": ["0.4mm", "0.5mm"],
+      "width": "1005 mm",
+      "length": "Custom length",
+      "substrate": "Galvanized Steel",
+      "paintSystem": "Polyester Coating",
+      "coatingThickness": "25 microns",
+      "colors": ["Red", "Blue", "Green", "Gray", "White", "Brown", "Beige", "Foam Green", "Apple Green", "Terracotta", "G.I."]
+    },
+    "colors": ["Red", "Blue", "Green", "Gray", "White", "Brown", "Beige", "Foam Green", "Apple Green", "Terracotta", "G.I."]
+  },
+  {
+    "id": "105",
+    "name": "Horizon",
+    "type": "Tilespan",
+    "category": "Roofing",
+    "description": "Our Horizon Metal Roofing combines modern aesthetics with durability, making it a perfect choice for contemporary homes.",
+    "images": [
+      "./images/products/tilespan/masterpiece.png",
+      "./images/products/tilespan/masterpiece.png",
+      "./images/products/tilespan/masterpiece.png"
+    ],
+    "features": [
+      "Corrosion-resistant",
+      "Energy-efficient",
+      "Available in multiple colors"
+    ],
+    "detailedDescription": {
+      "thickness": ["0.4mm", "0.5mm"],
+      "width": "1005 mm",
+      "length": "Custom length",
+      "substrate": "Galvanized Steel",
+      "paintSystem": "Polyester Coating",
+      "coatingThickness": "25 microns",
+      "colors": ["Red", "Blue", "Green", "Gray", "White", "Brown", "Beige", "Foam Green", "Apple Green", "Terracotta", "G.I."]
+    },
+    "colors": ["Red", "Blue", "Green", "Gray", "White", "Brown", "Beige", "Foam Green", "Apple Green", "Terracotta", "G.I."]
+  },
+  {
+    "id": "106",
+    "name": "Parallel",
+    "type": "Tilespan",
+    "category": "Roofing",
+    "description": "Our Parallel Metal Roofing offers a unique design and exceptional durability, ideal for any home.",
+    "images": [
+      "./images/products/tilespan/masterpiece.png",
+      "./images/products/tilespan/masterpiece.png",
+      "./images/products/tilespan/masterpiece.png"
+    ],
+    "features": [
+      "Corrosion-resistant",
+      "Energy-efficient",
+      "Available in multiple colors"
+    ],
+    "detailedDescription": {
+      "thickness": ["0.4mm", "0.5mm"],
+      "width": "1005 mm",
+      "length": "Custom length",
+      "substrate": "Galvanized Steel",
+      "paintSystem": "Polyester Coating",
+      "coatingThickness": "25 microns",
+      "colors": ["Red", "Blue", "Green", "Gray", "White", "Brown", "Beige", "Foam Green", "Apple Green", "Terracotta", "G.I."]
+    },
+    "colors": ["Red", "Blue", "Green", "Gray", "White", "Brown", "Beige", "Foam Green", "Apple Green", "Terracotta", "G.I."]
+  }
+]

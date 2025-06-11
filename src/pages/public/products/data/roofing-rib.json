@@ -1,0 +1,142 @@
+[
+  {
+    "id": "201",
+    "name": "Super Rib",
+    "type": "Rib-Type",
+    "category": "Roofing",
+    "description": "Our Premium Rib-Type Metal Roofing combines exceptional durability with a stylish design, making it the perfect choice for enhancing the aesthetic and structural integrity of any home.",
+    "images": [
+      "./images/products/ribtype/rib_01.jpg",
+      "./images/products/ribtype/rib_02.jpg",
+      "./images/products/ribtype/rib_03.jpg",
+      "./images/products/ribtype/rib_04.jpg"
+    ],
+    "features": [
+      "Corrosion-resistant",
+      "Energy-efficient",
+      "Available in multiple colors"
+    ],
+    "detailedDescription": {
+      "thickness": ["0.4mm", "0.5mm"],
+      "width": "1040 mm",
+      "length": "Custom length",
+      "substrate": "Galvanized Steel",
+      "paintSystem": "Polyester Coating",
+      "coatingThickness": "25 microns",
+      "colors": ["Red", "Blue", "Green", "Gray", "White", "Brown", "Beige", "Foam Green", "Apple Green", "Terracotta", "G.I."]
+    },
+    "colors": ["Red", "Blue", "Green", "G.Is."]
+  },
+  {
+    "id": "202",
+    "name": "Super Multi Rib",
+    "type": "Rib-Type",
+    "category": "Roofing",
+    "description": "This roofing features an innovative design with 7 robust ribs, surpassing the standard 5 ribs, which significantly enhances its strength and aesthetic appeal, making it an ideal choice for any home.",
+    "images": [
+      "./images/products/ribtype/masterpiece.png",
+      "./images/products/ribtype/masterpiece.png",
+      "./images/products/ribtype/masterpiece.png",
+      "./images/products/ribtype/masterpiece.png"
+    ],
+    "features": [
+      "Corrosion-resistant",
+      "Energy-efficient",
+      "Available in multiple colors"
+    ],
+    "detailedDescription": {
+      "thickness": ["0.4mm", "0.5mm"],
+      "width": "1010 mm",
+      "length": "Custom length",
+      "substrate": "Galvanized Steel",
+      "paintSystem": "Polyester Coating",
+      "coatingThickness": "25 microns",
+      "colors": ["Red", "Blue", "Green", "Gray", "White", "Brown", "Beige", "Foam Green", "Apple Green", "Terracotta", "G.I."]
+    },
+    "colors": ["Red", "Blue", "Green", "G.Is."]
+  },
+  {
+    "id": "203",
+    "name": "Super Twin Rib",
+    "type": "Rib-Type",
+    "category": "Roofing",
+    "description": "Our Premium Twin Rib Roofing features a unique twin rib design that enhances both durability and aesthetic appeal, making it an ideal choice for any home. It provides excellent coverage and strength.",
+    "images": [
+      "./images/products/ribtype/masterpiece.png",
+      "./images/products/ribtype/masterpiece.png",
+      "./images/products/ribtype/masterpiece.png",
+      "./images/products/ribtype/masterpiece.png"
+    ],
+    "features": [
+      "Corrosion-resistant",
+      "Energy-efficient",
+      "Available in multiple colors"
+    ],
+    "detailedDescription": {
+      "thickness": ["0.4mm", "0.5mm"],
+      "width": "1000 mm",
+      "length": "Custom length",
+      "substrate": "Galvanized Steel",
+      "paintSystem": "Polyester Coating",
+      "coatingThickness": "25 microns",
+      "colors": ["Red", "Blue", "Green", "Gray", "White", "Brown", "Beige", "Foam Green", "Apple Green", "Terracotta", "G.I."]
+    },
+    "colors": ["Red", "Blue", "Green", "G.Is."]
+  },
+  {
+    "id": "204",
+    "name": "MasterRib",
+    "type": "Rib-Type",
+    "category": "Roofing",
+    "description": "Our Master Rib Roofing features a modern and sophisticated design, providing exceptional durability and aesthetic appeal, making it an ideal choice for contemporary homes.",
+    "images": [
+      "./images/products/ribtype/masterpiece.png",
+      "./images/products/ribtype/masterpiece.png",
+      "./images/products/ribtype/masterpiece.png",
+      "./images/products/ribtype/masterpiece.png"
+    ],
+    "features": [
+      "Corrosion-resistant",
+      "Energy-efficient",
+      "Available in multiple colors"
+    ],
+    "detailedDescription": {
+      "thickness": ["0.4mm", "0.5mm"],
+      "width": "1005 mm",
+      "length": "Custom length",
+      "substrate": "Galvanized Steel",
+      "paintSystem": "Polyester Coating",
+      "coatingThickness": "25 microns",
+      "colors": ["Red", "Blue", "Green", "Gray", "White", "Brown", "Beige", "Foam Green", "Apple Green", "Terracotta", "G.I."]
+    },
+    "colors": ["Red", "Blue", "Green", "G.Is."]
+  },
+  {
+    "id": "205",
+    "name": "MasterRib Prime",
+    "type": "Rib-Type",
+    "category": "Roofing",
+    "description": "Master Rib Prime Roofing offers a perfect blend of durability and modern style, featuring a sleek ribbed design that enhances any home’s aesthetic while providing reliable protection.",
+    "images": [
+      "./images/products/ribtype/masterpiece.png",
+      "./images/products/ribtype/masterpiece.png",
+      "./images/products/ribtype/masterpiece.png",
+      "./images/products/ribtype/masterpiece.png"
+    ],
+    "features": [
+      "Corrosion-resistant",
+      "Energy-efficient",
+      "Available in multiple colors"
+    ],
+    "detailedDescription": {
+      "thickness": ["0.4mm", "0.5mm"],
+      "width": "1000 mm",
+      "length": "Custom length",
+      "substrate": "Galvanized Steel",
+      "paintSystem": "Polyester Coating",
+      "coatingThickness": "25 microns",
+      "colors": ["Red", "Blue", "Green", "Gray", "White", "Brown", "Beige", "Foam Green", "Apple Green", "Terracotta", "G.I."]
+    },
+    "colors": ["Red", "Blue", "Green", "G.Is."]
+  }
+]

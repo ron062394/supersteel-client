@@ -1,0 +1,110 @@
+[
+  {
+    "id": "601",
+    "name": "Super Spandrel: Beige",
+    "category": "Spandrels",
+    "type": "Spandrel",
+    "images": [
+      "./images/products/spandrel/spandrel_01.png",
+      "./images/products/spandrel/spandrel_01.png",
+      "./images/products/spandrel/spandrel_01.png"
+    ],
+    "features": [
+      "Lightweight and durable",
+      "Corrosion-resistant",
+      "Customizable sizes and colors"
+    ],
+    "detailedDescription": {
+      "material": "Aluminum",
+      "thickness": "1.5 mm",
+      "width": "1200 mm",
+      "length": "3000 mm",
+      "finish": "Powder-coated"
+    },
+    "description": "The Super Spandrel: Beige is designed for aesthetic appeal and structural integrity, making it ideal for modern architectural applications.",
+    "colors": [
+      "#F5F5DC"
+    ]
+  },
+  {
+    "id": "602",
+    "name": "Super Spandrel: White",
+    "category": "Spandrels",
+    "type": "Spandrel",
+    "images": [
+      "./images/products/spandrel/spandrel_01.png",
+      "./images/products/spandrel/spandrel_01.png",
+      "./images/products/spandrel/spandrel_01.png"
+    ],
+    "features": [
+      "Lightweight and durable",
+      "Corrosion-resistant",
+      "Customizable sizes and colors"
+    ],
+    "detailedDescription": {
+      "material": "Aluminum",
+      "thickness": "1.5 mm",
+      "width": "1200 mm",
+      "length": "3000 mm",
+      "finish": "Powder-coated"
+    },
+    "description": "The Super Spandrel: White is designed for aesthetic appeal and structural integrity, making it ideal for modern architectural applications.",
+    "colors": [
+      "#FFFFFF"
+    ]
+  },
+  {
+    "id": "603",
+    "name": "Super Spandrel: Narra Woodgrain",
+    "category": "Spandrels",
+    "type": "Spandrel",
+    "images": [
+      "./images/products/spandrel/spandrel_01.png",
+      "./images/products/spandrel/spandrel_01.png",
+      "./images/products/spandrel/spandrel_01.png"
+    ],
+    "features": [
+      "Lightweight and durable",
+      "Corrosion-resistant",
+      "Customizable sizes and colors"
+    ],
+    "detailedDescription": {
+      "material": "Aluminum",
+      "thickness": "1.5 mm",
+      "width": "1200 mm",
+      "length": "3000 mm",
+      "finish": "Powder-coated"
+    },
+    "description": "The Super Spandrel: Narra Woodgrain is designed for aesthetic appeal and structural integrity, making it ideal for modern architectural applications.",
+    "colors": [
+      "#8B4513"
+    ]
+  },
+  {
+    "id": "604",
+    "name": "Super Spandrel: Dark Woodgrain",
+    "category": "Spandrels",
+    "type": "Spandrel",
+    "images": [
+      "./images/products/spandrel/spandrel_01.png",
+      "./images/products/spandrel/spandrel_01.png",
+      "./images/products/spandrel/spandrel_01.png"
+    ],
+    "features": [
+      "Lightweight and durable",
+      "Corrosion-resistant",
+      "Customizable sizes and colors"
+    ],
+    "detailedDescription": {
+      "material": "Aluminum",
+      "thickness": "1.5 mm",
+      "width": "1200 mm",
+      "length": "3000 mm",
+      "finish": "Powder-coated"
+    },
+    "description": "The Super Spandrel: Dark Woodgrain is designed for aesthetic appeal and structural integrity, making it ideal for modern architectural applications.",
+    "colors": [
+      "#654321"
+    ]
+  }
+]
