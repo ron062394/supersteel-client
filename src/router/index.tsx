@@ -7,6 +7,7 @@ import Careers from '@/pages/public/Careers';
 import Products from '@/pages/public/Products';
 import RoofingView from '@/pages/public/products/RoofingView';
 import QuotationForm from '@/pages/public/QuotationForm';
+import DeckingView from '@/pages/public/products/DeckingView';
 
 function AppRouter() {
   return (
@@ -21,6 +22,7 @@ function AppRouter() {
         <Route path="/rib-type/:id" element={<RoofingView />} />
         <Route path="/tilespan/:id" element={<RoofingView />} />
         <Route path="/corrugated/:id" element={<RoofingView />} />
+        <Route path="/decking/:id" element={<DeckingView />} />
         <Route path="/quotation-form" element={<QuotationForm />} />
       </Routes>
       <Footer />
