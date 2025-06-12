@@ -7,7 +7,7 @@ import Careers from '@/pages/public/Careers';
 import Products from '@/pages/public/Products';
 import RoofingView from '@/pages/public/products/RoofingView';
 import QuotationForm from '@/pages/public/QuotationForm';
-import DeckingView from '@/pages/public/products/DeckingView';
+import DeckingView from '@/pages/public/DeckingView';
 
 function AppRouter() {
   return (
