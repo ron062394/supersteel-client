@@ -1,35 +1,32 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaArrowLeft, FaFileAlt, FaPalette, FaRuler, FaShieldAlt, FaInfoCircle, FaChevronRight } from 'react-icons/fa';
+import { FaArrowLeft, FaFileAlt, FaRuler, FaShieldAlt, FaInfoCircle, FaChevronRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import decking from './products/data/decking.json';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import bended from './products/data/bended.json';
 import RelatedProducts from './products/RelatedProducts';
 import FeaturedProducts from './products/FeaturedProduct';
 import ImageCarousel from './products/imageCarousel';
-
-interface DetailedDescription {
-  material: string;
-  thickness: string;
-  width: string;
-  length: string;
-  surfaceTexture: string;
-  maintenanceRequirements: string;
-}
 
 interface Product {
   id: string;
   name: string;
   category: string;
   type: string;
-  features: string[];
   images: string[];
-  finishes?: string[];
-  detailedDescription: DetailedDescription;
+  features: string[];
   description: string;
+  detailedDescription: {
+    material: string;
+    thickness: string;
+    length: string;
+    width: string;
+    finish: string;
+  }
 }
 
-const DeckingView = () => {
+const BendedView: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [product, setProduct] = useState<Product | null>(null);
@@ -41,13 +38,13 @@ const DeckingView = () => {
     fetchRelatedProducts();
   }, [id]);
 
-  const fetchProductData = () => {
+  const fetchProductData = (): void => {
     try {
       if (!id) {
         console.error('Product ID is undefined');
         return;
       }
-      const foundProduct = decking.find((p: Product) => p.id === id);
+      const foundProduct = bended.find((p: Product) => p.id === id);
       if (foundProduct) {
         // Modify the image paths to remove the leading './'
         const modifiedProduct: Product = {
@@ -64,14 +61,14 @@ const DeckingView = () => {
     }
   };
 
-  const fetchRelatedProducts = () => {
+  const fetchRelatedProducts = (): void => {
     try {
-      // Check if decking is an array
-      if (!Array.isArray(decking)) {
-        console.error('Decking data is not an array');
+      // Check if bended is an array
+      if (!Array.isArray(bended)) {
+        console.error('Bended data is not an array');
         return;
       }
-      const filteredProducts = decking.filter((p: Product) => p.id !== id);
+      const filteredProducts = bended.filter((p: Product) => p.id !== id);
       const randomProducts = getRandomProducts(filteredProducts, 3);
       // Modify the image paths for related products as well
       const modifiedRelatedProducts = randomProducts.map((product: Product) => ({
@@ -94,14 +91,15 @@ const DeckingView = () => {
     visible: { opacity: 1, y: 0 },
   };
 
-  const nextImage = () => {
+  const nextImage = (): void => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % (product?.images?.length || 1));
   };
 
-  const prevImage = () => {
+  const prevImage = (): void => {
     setCurrentImageIndex((prevIndex) => (prevIndex - 1 + (product?.images?.length || 1)) % (product?.images?.length || 1));
   };
 
+  
   if (!product) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -153,7 +151,7 @@ const DeckingView = () => {
                     Key Features
                   </h3>
                   <ul className="mt-4 space-y-2 text-gray-700">
-                    {product.features && product.features.length > 0 && product.features.map((feature: string, index: number) => (
+                    {product.features.map((feature: string, index: number) => (
                       <motion.li 
                         key={index} 
                         className="flex items-center"
@@ -180,30 +178,9 @@ const DeckingView = () => {
                   <div className="mt-4 grid grid-cols-2 gap-4 text-gray-700">
                     <div><strong>Material:</strong> {product.detailedDescription.material}</div>
                     <div><strong>Thickness:</strong> {product.detailedDescription.thickness}</div>
-                    <div><strong>Width:</strong> {product.detailedDescription.width}</div>
                     <div><strong>Length:</strong> {product.detailedDescription.length}</div>
-                  </div>
-                </motion.div>
-                <motion.div 
-                  className="mt-8"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 }}
-                >
-                  <h3 className="text-2xl font-semibold text-gray-900 flex items-center">
-                    <FaPalette className="mr-2 text-[#F71F27]" />
-                    Available Finishes
-                  </h3>
-                  <div className="mt-4 flex flex-wrap gap-3">
-                    {product.finishes && product.finishes.length > 0 && product.finishes.map((finish: string, index: number) => (
-                      <motion.div 
-                        key={index} 
-                        className="px-3 py-1 bg-gray-200 rounded-full text-gray-700"
-                        whileHover={{ scale: 1.05, boxShadow: "0px 0px 8px rgba(0,0,0,0.1)" }}
-                      >
-                        {finish}
-                      </motion.div>
-                    ))}
+                    <div><strong>Width:</strong> {product.detailedDescription.width}</div>
+                    <div><strong>Finish:</strong> {product.detailedDescription.finish}</div>
                   </div>
                 </motion.div>
                 <motion.div 
@@ -229,18 +206,12 @@ const DeckingView = () => {
                 <FaInfoCircle className="mr-2 text-[#F71F27]" />
                 Detailed Description
               </h3>
-              <div className="text-gray-700 leading-relaxed grid grid-cols-1 md:grid-cols-2 gap-4">
-                <p><strong>Description:</strong> {product.description}</p>
-                <p><strong>Material:</strong> {product.detailedDescription.material}</p>
-                <p><strong>Thickness:</strong> {product.detailedDescription.thickness}</p>
-                <p><strong>Width:</strong> {product.detailedDescription.width}</p>
-                <p><strong>Length:</strong> {product.detailedDescription.length}</p>
-                <p><strong>Surface Texture:</strong> {product.detailedDescription.surfaceTexture}</p>
-                <p><strong>Maintenance Requirements:</strong> {product.detailedDescription.maintenanceRequirements}</p>
+              <div className="text-gray-700 leading-relaxed">
+                <p>{product.description}</p>
               </div>
             </motion.div>
           </div>
-
+          
           <RelatedProducts products={relatedProducts} fadeInUp={fadeInUp} />
 
           <FeaturedProducts />
@@ -251,4 +222,4 @@ const DeckingView = () => {
   );
 };
 
-export default DeckingView;
+export default BendedView;
