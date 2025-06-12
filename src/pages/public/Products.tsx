@@ -30,6 +30,8 @@ const Products = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [categoryLoading, setCategoryLoading] = useState<boolean>(false);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const productsPerPage = 12;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -38,15 +40,6 @@ const Products = () => {
 
   const loadProducts = (): void => {
     try {
-      // Log the imported data to check their structure
-      console.log('Roofing Corr:', roofingCorr);
-      console.log('Roofing Rib:', roofingRib);
-      console.log('Roofing Tile:', roofingTile);
-      console.log('Decking:', decking);
-      console.log('Light Frame:', lightFrame);
-      console.log('Spandrel:', spandrel);
-      console.log('Bended:', bended);
-
       const roofingProducts = [
         ...(Array.isArray(roofingCorr) ? roofingCorr : [roofingCorr]),
         ...(Array.isArray(roofingRib) ? roofingRib : [roofingRib]),
@@ -66,7 +59,6 @@ const Products = () => {
 
       setProducts(allProducts);
       setLoading(false);
-      console.log('All Products:', allProducts);
     } catch (err) {
       console.error('Error loading products:', err);
       setError('Failed to load products. Please try again later.');
@@ -101,12 +93,24 @@ const Products = () => {
     });
   }, [products, activeCategory, searchTerm]);
 
+  const paginatedProducts = useMemo(() => {
+    const startIndex = (currentPage - 1) * productsPerPage;
+    return filteredProducts.slice(startIndex, startIndex + productsPerPage);
+  }, [filteredProducts, currentPage]);
+
+  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+
   const handleCategoryChange = (category: string): void => {
     setCategoryLoading(true);
     setActiveCategory(category);
     setTimeout(() => {
       setCategoryLoading(false);
     }, 500); // Simulating a short delay for category change
+  };
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   if (loading) {
@@ -177,35 +181,64 @@ const Products = () => {
                   <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#F71F27]"></div>
                 </motion.div>
               ) : (
-                <motion.div 
-                  key={activeCategory}
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-                  initial="hidden"
-                  animate="visible"
-                  exit="hidden"
-                  variants={fadeInUp}
-                >
-                  {filteredProducts.map((product, index) => (
-                    <motion.div
-                      key={product.id}
-                      className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:scale-105"
-                      variants={fadeInUp}
-                      transition={{ delay: index * 0.1 }}
-                    >
-                      <div className="w-full aspect-square overflow-hidden bg-gray-200">
-                        <img src={product.images[0]} alt={product.name} loading="lazy" className="w-full h-full object-contain" />
-                      </div>
-                      <div className="p-6">
-                        <h3 className="text-xl font-semibold text-gray-900 mb-2">{product.name}</h3>
-                        <p className="text-gray-600 mb-4">{product.description.length > 100 ? `${product.description.substring(0, 100)}...` : product.description}</p>
-                        <Link to={`/${product.type.toLowerCase()}/${product.id}`} className="text-[#F71F27] font-semibold hover:underline flex items-center">
-                          Learn More
-                          <FaChevronRight className="ml-2" />
-                        </Link>
-                      </div>
-                    </motion.div>
-                  ))}
-                </motion.div>
+                <>
+                  <motion.div 
+                    key={activeCategory}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    variants={fadeInUp}
+                  >
+                    {paginatedProducts.map((product, index) => (
+                      <motion.div
+                        key={product.id}
+                        className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:scale-105"
+                        variants={fadeInUp}
+                        transition={{ delay: index * 0.1 }}
+                      >
+                        <div className="w-full aspect-square overflow-hidden bg-gray-200">
+                          <img 
+                            src={product.images[0]} 
+                            alt={product.name} 
+                            loading="lazy"
+                            className="w-full h-full object-contain transition-opacity duration-300"
+                            onLoad={(e) => {
+                              e.currentTarget.style.opacity = '1';
+                            }}
+                            style={{ opacity: 0 }}
+                          />
+                        </div>
+                        <div className="p-6">
+                          <h3 className="text-xl font-semibold text-gray-900 mb-2">{product.name}</h3>
+                          <p className="text-gray-600 mb-4">{product.description.length > 100 ? `${product.description.substring(0, 100)}...` : product.description}</p>
+                          <Link to={`/${product.type.toLowerCase()}/${product.id}`} className="text-[#F71F27] font-semibold hover:underline flex items-center">
+                            Learn More
+                            <FaChevronRight className="ml-2" />
+                          </Link>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                  
+                  {totalPages > 1 && (
+                    <div className="flex justify-center mt-8 gap-2">
+                      {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                        <button
+                          key={page}
+                          onClick={() => handlePageChange(page)}
+                          className={`px-4 py-2 rounded-lg ${
+                            currentPage === page
+                              ? 'bg-[#F71F27] text-white'
+                              : 'bg-white text-gray-700 hover:bg-gray-200'
+                          }`}
+                        >
+                          {page}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </>
               )}
             </AnimatePresence>
           </div>
