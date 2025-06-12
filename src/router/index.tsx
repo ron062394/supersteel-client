@@ -5,7 +5,7 @@ import AboutUs from '@/pages/public/AboutUs';
 import ContactUs from '@/pages/public/ContactUs';
 import Careers from '@/pages/public/Careers';
 import Products from '@/pages/public/Products';
-import RoofingView from '@/pages/public/products/RoofingView';
+import RoofingView from '@/pages/public/RoofingView';
 import QuotationForm from '@/pages/public/QuotationForm';
 import DeckingView from '@/pages/public/DeckingView';
 import BendedView from '@/pages/public/BendedView';

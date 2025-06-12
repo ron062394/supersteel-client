@@ -1,5 +1,4 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import type { Variants } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaChevronRight } from 'react-icons/fa';
 
@@ -11,12 +10,7 @@ interface Product {
   images: string[];
 }
 
-interface RelatedProductsProps {
-  products: Product[];
-  fadeInUp: Variants;
-}
-
-const RelatedProducts: React.FC<RelatedProductsProps> = ({ products, fadeInUp }) => {
+const RelatedProducts: React.FC<{ products: Product[] }> = ({ products }) => {
   return (
     <motion.div
       className="mt-16"
@@ -31,13 +25,11 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ products, fadeInUp })
           initial="hidden"
           animate="visible"
           exit="hidden"
-          variants={fadeInUp}
         >
           {products.map((product, index) => (
             <motion.div
               key={product.id}
               className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:scale-105"
-              variants={fadeInUp}
               transition={{ delay: index * 0.1 }}
             >
               <div className="h-96 w-96 overflow-hidden bg-gray-200">

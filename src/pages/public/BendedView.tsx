@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 import { FaArrowLeft, FaFileAlt, FaRuler, FaShieldAlt, FaInfoCircle, FaChevronRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import bended from './products/data/bended.json';
-import RelatedProducts from './products/RelatedProducts';
-import FeaturedProducts from './products/FeaturedProduct';
-import ImageCarousel from './products/imageCarousel';
+import bended from '../../constants/bended.json';
+import RelatedProducts from '../../components/page/RelatedProducts';
+import FeaturedProducts from '../../components/page/FeaturedProduct';
+import ImageCarousel from '../../components/page/imageCarousel';
 
 interface Product {
   id: string;

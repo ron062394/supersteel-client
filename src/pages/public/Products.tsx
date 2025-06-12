@@ -3,16 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaHardHat, FaChevronRight, FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { roofingCorr, roofingRib, roofingTile, decking, lightFrames, spandrel, bended } from '../../constants';
 
-// Import JSON data';
-import roofingCorr from './products/data/roofing-corr.json';
-import roofingRib from './products/data/roofing-rib.json';
-import roofingTile from './products/data/roofing-tile.json';
-import decking from './products/data/decking.json';
-import lightFrame from './products/data/light-frame.json';
-import spandrel from './products/data/spandrel.json';
-import bended from './products/data/bended.json';
-import FeaturedProduct from './products/FeaturedProduct';
+import FeaturedProduct from '../../components/page/FeaturedProduct';
 
 interface Product {
   id: string;
@@ -52,7 +45,7 @@ const Products = () => {
       const allProducts = [
         ...roofingProducts,
         ...(Array.isArray(decking) ? decking : [decking]),
-        ...(Array.isArray(lightFrame) ? lightFrame : [lightFrame]),
+        ...(Array.isArray(lightFrames) ? lightFrames : [lightFrames]),
         ...(Array.isArray(spandrel) ? spandrel : [spandrel]),
         ...(Array.isArray(bended) ? bended : [bended])
       ] as Product[];
