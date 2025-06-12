@@ -10,6 +10,7 @@ import QuotationForm from '@/pages/public/QuotationForm';
 import DeckingView from '@/pages/public/DeckingView';
 import BendedView from '@/pages/public/BendedView';
 import LightFramesView from '@/pages/public/LightFramesView';
+import SpandrelView from '@/pages/public/SpandrelView';
 
 function AppRouter() {
   return (
@@ -27,6 +28,7 @@ function AppRouter() {
         <Route path="/bended/:id" element={<BendedView />} />
         <Route path="/decking/:id" element={<DeckingView />} />
         <Route path="/light frames/:id" element={<LightFramesView />} />
+        <Route path="/spandrel/:id" element={<SpandrelView />} />
         <Route path="/quotation-form" element={<QuotationForm />} />
       </Routes>
       <Footer />
