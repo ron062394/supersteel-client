@@ -1,6 +1,7 @@
 // Common Components
 export { default as Button } from './common/button/Button';
 export { FullPageLoader } from './common/loader/FullPageLoader';
+export { default as Link } from './common/Link/Link';
 
 // Page Components
 export { default as Navbar } from './page/Navbar';

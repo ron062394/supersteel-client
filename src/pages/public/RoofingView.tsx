@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { FaArrowLeft, FaFileAlt, FaPalette, FaRuler, FaShieldAlt, FaInfoCircle, FaChevronRight } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { FaFileAlt, FaPalette, FaRuler, FaShieldAlt, FaInfoCircle, FaChevronRight } from 'react-icons/fa';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { roofingCorr, roofingRib, roofingTile } from '../../constants';
-import { RelatedProducts, FeaturedProducts, ImageCarousel, FullPageLoader } from '../../components';
+import { Button, RelatedProducts, FeaturedProducts, ImageCarousel, FullPageLoader, Link } from '../../components';
 import type { TRoofingProduct } from '../../types/products';
 import { getRandomItems } from '../../composables';
 
@@ -13,7 +12,8 @@ const RoofingView = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [product, setProduct] = useState<TRoofingProduct | null>(null);
   const [relatedProducts, setRelatedProducts] = useState<TRoofingProduct[]>([]);
-
+  const navigate = useNavigate();
+  
   useEffect(() => {
     window.scrollTo(0, 0);
     fetchProductData();
@@ -62,13 +62,10 @@ const RoofingView = () => {
   }
   return (
     <div className="min-h-screen bg-gray-100 relative overflow-hidden py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div>
-          <Link to="/products" className="text-gray-800 hover:text-[#F71F27] transition duration-300 flex items-center mb-8">
-            <FaArrowLeft className="mr-2" />
-            Back to Products
-          </Link>
-          <div className="bg-white rounded-xl shadow-2xl overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 my-2">
+        <div className="flex flex-col gap-4">
+          <Link to="/products" direction="back">Back to Products</Link>
+          <div className="bg-white rounded-xl shadow-md overflow-hidden">
             <div className="md:flex">
               <ImageCarousel images={product.images} currentImageIndex={currentImageIndex} setCurrentImageIndex={setCurrentImageIndex} nextImage={nextImage} prevImage={prevImage} />
               <div className="md:w-1/2 p-8">
@@ -115,7 +112,7 @@ const RoofingView = () => {
                     {product.colors.map((color: string, index: number) => (
                       <div
                         key={index}
-                        className="w-10 h-10 rounded-full border-2 border-gray-300 shadow-lg cursor-pointer"
+                        className="w-8 h-8 rounded-full border-2 border-gray-300 shadow-md cursor-pointer"
                         style={{
                           backgroundColor: color === 'G.I.' ? '#E8E8E8' : color,
                           backgroundImage: color === 'G.I.' ? 'linear-gradient(45deg, #E8E8E8, #F5F5F5)' : 'none'
@@ -125,12 +122,13 @@ const RoofingView = () => {
                     ))}
                   </div>
                 </div>
-                <div className="mt-10">
-                  <Link to="/quotation-form" className="bg-[#F71F27] text-white px-8 py-4 rounded-full font-semibold hover:bg-red-700 transition duration-300 flex items-center inline-block shadow-lg hover:shadow-xl">
-                    <FaFileAlt className="mr-3" />
-                    Request a Quotation
-                  </Link>
-                </div>
+                <Button
+                  onClick={() => navigate('/quotation-form')}
+                  variant="primary"
+                  icon={<FaFileAlt />}
+                >
+                  Get a Quotation
+                </Button>
               </div>
             </div>
             <div className="p-8 bg-gray-100">
