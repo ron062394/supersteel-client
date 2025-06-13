@@ -5,12 +5,12 @@ import AboutUs from '@/pages/public/AboutUs';
 import ContactUs from '@/pages/public/ContactUs';
 import Careers from '@/pages/public/Careers';
 import Products from '@/pages/public/Products';
-import RoofingView from '@/pages/public/Vies/RoofingView';
+import RoofingView from '@/pages/public/product-views/RoofingView';
 import QuotationForm from '@/pages/public/QuotationForm';
-import DeckingView from '@/pages/public/Vies/DeckingView';
-import BendedView from '@/pages/public/Vies/BendedView';
-import LightFramesView from '@/pages/public/Vies/LightFramesView';
-import SpandrelView from '@/pages/public/Vies/SpandrelView';
+import DeckingView from '@/pages/public/product-views/DeckingView';
+import BendedView from '@/pages/public/product-views/BendedView';
+import LightFramesView from '@/pages/public/product-views/LightFramesView';
+import SpandrelView from '@/pages/public/product-views/SpandrelView';
 
 function AppRouter() {
   return (

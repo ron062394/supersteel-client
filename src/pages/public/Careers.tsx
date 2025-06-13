@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaBuilding, FaMapMarkerAlt, FaCalendarAlt, FaChevronDown } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { FaBuilding, FaMapMarkerAlt, FaCalendarAlt, FaChevronDown, FaChevronRight } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '../../components';
 
 interface Job {
   id: number;
@@ -15,6 +16,7 @@ interface Job {
 }
 
 const Careers = () => {
+  const navigate = useNavigate();
   const [expandedJob, setExpandedJob] = useState<number | null>(null);
   const [jobs, setJobs] = useState<Job[]>([]);
 
@@ -187,12 +189,12 @@ const Careers = () => {
                         <li key={index}>{qual}</li>
                       ))}
                     </ul>
-                    <Link
-                      to="/contact"
-                      className="inline-block bg-[#F71F27] text-white px-6 py-3 rounded-full font-semibold hover:bg-red-700 transition-colors duration-200"
+                    <Button
+                      variant="primary"
+                      icon={<FaChevronRight />}
                     >
                       Apply Now
-                    </Link>
+                    </Button>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -218,12 +220,13 @@ const Careers = () => {
           variants={fadeInUp}
         >
           <p className="text-gray-700 mb-4">Don't see a position that fits your skills?</p>
-          <Link
-            to="/contact"
-            className="inline-block bg-gray-200 text-gray-800 px-6 py-3 rounded-full font-semibold hover:bg-gray-300 transition-colors duration-200"
+          <Button
+            variant="primary"
+            icon={<FaChevronRight />}
+            onClick={() => navigate('/contact')}
           >
             Contact Us
-          </Link>
+          </Button>
         </motion.div>
       </div>
     </div>

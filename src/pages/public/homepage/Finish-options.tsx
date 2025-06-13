@@ -1,5 +1,6 @@
 import { FaPalette, FaShieldAlt, FaSun, FaLayerGroup, FaInfoCircle, FaStar } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '../../../components';
 
 interface ColorOption {
   name: string;
@@ -21,6 +22,7 @@ interface RoofingLayer {
 }
 
 const FinishOptions: React.FC = () => {
+  const navigate = useNavigate();
   const standardColorOptions: ColorOption[] = [
     { name: 'Blue', hex: '#032445', description: 'Classic and calming' },
     { name: 'Gray', hex: '#231c1c', description: 'Sophisticated and neutral' },
@@ -153,10 +155,13 @@ const FinishOptions: React.FC = () => {
         </p>
         
         <div className="mt-8 flex justify-center">
-          <Link to="./contact" className="bg-[#F71F27] hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out flex items-center">
-            <FaInfoCircle className="mr-2" />
+          <Button
+            onClick={() => navigate('/contact')}
+            variant="primary"
+            icon={<FaInfoCircle />}
+          >
             Ask for a Swatches Sample
-          </Link>
+          </Button>
         </div>
       </div>
     </div>
