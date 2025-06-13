@@ -79,3 +79,21 @@ export type TBendedSpecificationData = {
   width: string;
   finish: string;
 }
+export type TLightFramesProductData = {
+  id: string;
+  name: string;
+  category: string;
+  type: string;
+  images: string[];
+  features: string[];
+  description: string;
+  detailedDescription: TLightFramesSpecificationData;
+}
+
+export type TLightFramesSpecificationData = {
+  material: string;
+  thickness: string;
+  length: string;
+  width: string;
+  finish: string;
+}
