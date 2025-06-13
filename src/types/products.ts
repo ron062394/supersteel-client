@@ -97,3 +97,23 @@ export type TLightFramesSpecificationData = {
   width: string;
   finish: string;
 }
+
+export type TSpandrelProductData = {
+  id: string;
+  name: string;
+  type: string;
+  category: string;
+  description: string;
+  images: string[];
+  features: string[];
+  colors: string[];
+  detailedDescription: TSpandrelSpecificationData;
+}
+
+export type TSpandrelSpecificationData = {
+  material: string;
+  thickness: string;
+  width: string;
+  length: string;
+  finish: string;
+}
