@@ -1,34 +1,34 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaArrowLeft, FaFileAlt, FaRuler, FaShieldAlt, FaInfoCircle, FaChevronRight } from 'react-icons/fa';
+import { FaArrowLeft, FaFileAlt, FaPalette, FaRuler, FaShieldAlt, FaInfoCircle, FaChevronRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import lightFrames from '../../constants/light-frames.json';
-import RelatedProducts from '../../components/page/RelatedProducts';
-import FeaturedProducts from '../../components/page/FeaturedProduct';
-import ImageCarousel from '../../components/page/imageCarousel';
+import spandrel from '../../../constants/spandrel.json';
+import RelatedProducts from '../../../components/page/RelatedProducts';
+import FeaturedProducts from '../../../components/page/FeaturedProduct';
+import ImageCarousel from '../../../components/page/imageCarousel';
 
 interface DetailedDescription {
   material: string;
   thickness: string;
-  length: string;
   width: string;
+  length: string;
   finish: string;
 }
 
 interface Product {
   id: string;
   name: string;
-  category: string;
   type: string;
+  category: string;
+  description: string;
   images: string[];
   features: string[];
-  description: string;
+  colors: string[];
   detailedDescription: DetailedDescription;
 }
 
-const LightFramesView: React.FC = () => {
+const SpandrelView: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [product, setProduct] = useState<Product | null>(null);
@@ -46,10 +46,10 @@ const LightFramesView: React.FC = () => {
         console.error('Product ID is undefined');
         return;
       }
-      const foundProduct = lightFrames.find((p: Product) => p.id === id);
+      const foundProduct = spandrel.find((p: Product) => p.id === id);
       if (foundProduct) {
         // Modify the image paths to remove the leading './'
-        const modifiedProduct: Product = {
+        const modifiedProduct = {
           ...foundProduct,
           images: foundProduct.images.map((img: string) => img.replace('./', '/'))
         };
@@ -65,19 +65,14 @@ const LightFramesView: React.FC = () => {
 
   const fetchRelatedProducts = (): void => {
     try {
-      // Check if lightFrames is an array
-      if (!Array.isArray(lightFrames)) {
-        console.error('Light Frames data is not an array');
+      // Check if spandrel is an array
+      if (!Array.isArray(spandrel)) {
+        console.error('Spandrel data is not an array');
         return;
       }
-      const filteredProducts = lightFrames.filter((p: Product) => p.id !== id);
+      const filteredProducts = spandrel.filter((p: Product) => p.id !== id);
       const randomProducts = getRandomProducts(filteredProducts, 3);
-      // Modify the image paths for related products
-      const modifiedRelatedProducts = randomProducts.map((product: Product) => ({
-        ...product,
-        images: product.images.map((img: string) => img.replace('./', '/'))
-      }));
-      setRelatedProducts(modifiedRelatedProducts);
+      setRelatedProducts(randomProducts);
     } catch (error) {
       console.error('Error fetching related products:', error);
     }
@@ -128,7 +123,7 @@ const LightFramesView: React.FC = () => {
 
           <div className="bg-white rounded-xl shadow-2xl overflow-hidden">
             <div className="md:flex">
-              
+
               <ImageCarousel images={product.images} currentImageIndex={currentImageIndex} setCurrentImageIndex={setCurrentImageIndex} nextImage={nextImage} prevImage={prevImage} />
               
               <div className="md:w-1/2 p-8">
@@ -179,9 +174,30 @@ const LightFramesView: React.FC = () => {
                   <div className="mt-4 grid grid-cols-2 gap-4 text-gray-700">
                     <div><strong>Material:</strong> {product.detailedDescription.material}</div>
                     <div><strong>Thickness:</strong> {product.detailedDescription.thickness}</div>
-                    <div><strong>Length:</strong> {product.detailedDescription.length}</div>
                     <div><strong>Width:</strong> {product.detailedDescription.width}</div>
-                    <div><strong>Finish:</strong> {product.detailedDescription.finish}</div>
+                    <div><strong>Length:</strong> {product.detailedDescription.length}</div>
+                  </div>
+                </motion.div>
+                <motion.div 
+                  className="mt-8"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.8 }}
+                >
+                  <h3 className="text-2xl font-semibold text-gray-900 flex items-center">
+                    <FaPalette className="mr-2 text-[#F71F27]" />
+                    Available Colors
+                  </h3>
+                  <div className="mt-4 flex flex-wrap gap-3">
+                    {product.colors.map((color: string, index: number) => (
+                      <motion.div 
+                        key={index} 
+                        className="w-10 h-10 rounded-full border-2 border-gray-300 shadow-lg cursor-pointer"
+                        style={{ backgroundColor: color }}
+                        title={color}
+                        whileHover={{ scale: 1.2, boxShadow: "0px 0px 8px rgba(0,0,0,0.2)" }}
+                      />
+                    ))}
                   </div>
                 </motion.div>
                 <motion.div 
@@ -207,8 +223,13 @@ const LightFramesView: React.FC = () => {
                 <FaInfoCircle className="mr-2 text-[#F71F27]" />
                 Detailed Description
               </h3>
-              <div className="text-gray-700 leading-relaxed">
-                <p>{product.description}</p>
+              <div className="text-gray-700 leading-relaxed grid grid-cols-1 md:grid-cols-2 gap-4">
+                <p><strong>Description:</strong> {product.description}</p>
+                <p><strong>Material:</strong> {product.detailedDescription.material}</p>
+                <p><strong>Thickness:</strong> {product.detailedDescription.thickness}</p>
+                <p><strong>Width:</strong> {product.detailedDescription.width}</p>
+                <p><strong>Length:</strong> {product.detailedDescription.length}</p>
+                <p><strong>Finish:</strong> {product.detailedDescription.finish}</p>
               </div>
             </motion.div>
           </div>
@@ -223,4 +244,4 @@ const LightFramesView: React.FC = () => {
   );
 };
 
-export default LightFramesView;
+export default SpandrelView;

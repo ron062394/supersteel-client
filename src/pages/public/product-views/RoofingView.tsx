@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { FaFileAlt, FaPalette, FaRuler, FaShieldAlt, FaInfoCircle, FaChevronRight } from 'react-icons/fa';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { roofingCorr, roofingRib, roofingTile } from '../../constants';
-import { Button, RelatedProducts, FeaturedProducts, ImageCarousel, FullPageLoader, Link } from '../../components';
-import type { TRoofingProductData } from '../../types/products';
-import { getRelatedProducts, getProductById } from '../../composables';
+import { roofingCorr, roofingRib, roofingTile } from '../../../constants';
+import { Button, RelatedProducts, FeaturedProducts, ImageCarousel, FullPageLoader, Link } from '../../../components';
+import type { TRoofingProductData } from '../../../types/products';
+import { getRelatedProducts, getProductById } from '../../../composables';
 
 const RoofingView = () => {
   const { id } = useParams<{ id: string }>();

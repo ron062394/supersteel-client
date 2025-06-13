@@ -58,3 +58,24 @@ export type TDeckingSpecificationData = {
   surfaceTexture: string;
   maintenanceRequirements: string;
 }
+
+
+export type TBendedProductData = {
+  id: string;
+  name: string;
+  category: string;
+  type: string;
+  images: string[];
+  features: string[];
+  description: string;
+  detailedDescription: TBendedSpecificationData;
+}
+
+
+export type TBendedSpecificationData = {
+  material: string;
+  thickness: string;
+  length: string;
+  width: string;
+  finish: string;
+}

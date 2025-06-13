@@ -1,17 +1,19 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { FaFileAlt, FaPalette, FaRuler, FaShieldAlt, FaInfoCircle, FaChevronRight } from 'react-icons/fa';
-import decking from '../../constants/decking.json';
-import { Button, RelatedProducts, FeaturedProducts, ImageCarousel, FullPageLoader, Link } from '../../components';
-import type { TDeckingProductData } from '../../types/products';
-import { getRelatedProducts, getProductById } from '../../composables';
+import { FaFileAlt, FaRuler, FaShieldAlt, FaInfoCircle, FaChevronRight } from 'react-icons/fa';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import bended from '../../../constants/bended.json';
+import { RelatedProducts, FeaturedProducts, ImageCarousel, FullPageLoader, Link, Button } from '../../../components';
+import { getProductById, getRelatedProducts } from '../../../composables';
+import type { TBendedProductData } from '../../../types/products';
 
-const DeckingView = () => {
+
+const BendedView = () => {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
-  const [product, setProduct] = useState<TDeckingProductData | null>(null);
-  const [relatedProducts, setRelatedProducts] = useState<TDeckingProductData[]>([]);
+  const [product, setProduct] = useState<TBendedProductData | null>(null);
+  const [relatedProducts, setRelatedProducts] = useState<TBendedProductData[]>([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -19,15 +21,15 @@ const DeckingView = () => {
     fetchRelatedProducts();
   }, [id]);
 
-  const fetchProductData = () => {
+  const fetchProductData = (): void => {
     try {
       if (!id) {
         console.error('Product ID is undefined');
         return;
       }
-      const foundProduct = getProductById(decking, id);
+      const foundProduct = getProductById(bended, id);
       if (foundProduct) {
-        setProduct(foundProduct as TDeckingProductData);
+        setProduct(foundProduct as TBendedProductData);
       } else {
         console.error('Product not found');
       }
@@ -36,17 +38,25 @@ const DeckingView = () => {
     }
   };
 
-  const fetchRelatedProducts = () => {
-    const filteredProducts = decking.filter((p: TDeckingProductData) => p.id !== id);
-    const relatedProducts = getRelatedProducts(filteredProducts, id || '', 3);
-    setRelatedProducts(relatedProducts as TDeckingProductData[]);
-  }
+  const fetchRelatedProducts = (): void => {
+    try {
+      if (!Array.isArray(bended)) {
+        console.error('Bended data is not an array');
+        return;
+      }
+      const filteredProducts = bended.filter((p: TBendedProductData) => p.id !== id);
+      const relatedProducts = getRelatedProducts(filteredProducts, id || '', 3);
+      setRelatedProducts(relatedProducts as TBendedProductData[]);
+    } catch (error) {
+      console.error('Error fetching related products:', error);
+    }
+  };
 
-  const nextImage = () => {
+  const nextImage = (): void => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % (product?.images?.length || 1));
   };
 
-  const prevImage = () => {
+  const prevImage = (): void => {
     setCurrentImageIndex((prevIndex) => (prevIndex - 1 + (product?.images?.length || 1)) % (product?.images?.length || 1));
   };
 
@@ -61,7 +71,13 @@ const DeckingView = () => {
           <Link to="/products" direction="back">Back to Products</Link>
           <div className="bg-white rounded-xl shadow-2xl overflow-hidden">
             <div className="md:flex">
-              <ImageCarousel images={product.images} currentImageIndex={currentImageIndex} setCurrentImageIndex={setCurrentImageIndex} nextImage={nextImage} prevImage={prevImage} />
+              <ImageCarousel
+                images={product.images}
+                currentImageIndex={currentImageIndex}
+                setCurrentImageIndex={setCurrentImageIndex}
+                nextImage={nextImage}
+                prevImage={prevImage}
+              />
               <div className="md:w-1/2 p-8">
                 <div>
                   <div className="uppercase tracking-wide text-sm text-[#F71F27] font-semibold">{product.category}</div>
@@ -74,9 +90,9 @@ const DeckingView = () => {
                     Key Features
                   </h3>
                   <ul className="mt-4 space-y-2 text-gray-700">
-                    {product.features && product.features.length > 0 && product.features.map((feature: string, index: number) => (
-                      <li 
-                        key={index} 
+                    {product.features.map((feature: string, index: number) => (
+                      <li
+                        key={index}
                         className="flex items-center"
                       >
                         <FaChevronRight className="text-[#F71F27] mr-2" />
@@ -93,24 +109,9 @@ const DeckingView = () => {
                   <div className="mt-4 grid grid-cols-2 gap-4 text-gray-700">
                     <div><strong>Material:</strong> {product.detailedDescription.material}</div>
                     <div><strong>Thickness:</strong> {product.detailedDescription.thickness}</div>
-                    <div><strong>Width:</strong> {product.detailedDescription.width}</div>
                     <div><strong>Length:</strong> {product.detailedDescription.length}</div>
-                  </div>
-                </div>
-                <div className="mt-8">
-                  <h3 className="text-2xl font-semibold text-gray-900 flex items-center">
-                    <FaPalette className="mr-2 text-[#F71F27]" />
-                    Available Finishes
-                  </h3>
-                  <div className="mt-4 flex flex-wrap gap-3">
-                    {product.finishes && product.finishes.length > 0 && product.finishes.map((finish: string, index: number) => (
-                      <div 
-                        key={index} 
-                        className="px-3 py-1 bg-gray-200 rounded-full text-gray-700"
-                      >
-                        {finish}
-                      </div>
-                    ))}
+                    <div><strong>Width:</strong> {product.detailedDescription.width}</div>
+                    <div><strong>Finish:</strong> {product.detailedDescription.finish}</div>
                   </div>
                 </div>
                 <div className="mt-10">
@@ -129,14 +130,8 @@ const DeckingView = () => {
                 <FaInfoCircle className="mr-2 text-[#F71F27]" />
                 Detailed Description
               </h3>
-              <div className="text-gray-700 leading-relaxed grid grid-cols-1 md:grid-cols-2 gap-4">
-                <p><strong>Description:</strong> {product.description}</p>
-                <p><strong>Material:</strong> {product.detailedDescription.material}</p>
-                <p><strong>Thickness:</strong> {product.detailedDescription.thickness}</p>
-                <p><strong>Width:</strong> {product.detailedDescription.width}</p>
-                <p><strong>Length:</strong> {product.detailedDescription.length}</p>
-                <p><strong>Surface Texture:</strong> {product.detailedDescription.surfaceTexture}</p>
-                <p><strong>Maintenance Requirements:</strong> {product.detailedDescription.maintenanceRequirements}</p>
+              <div className="text-gray-700 leading-relaxed">
+                <p>{product.description}</p>
               </div>
             </div>
           </div>
@@ -148,4 +143,4 @@ const DeckingView = () => {
   );
 };
 
-export default DeckingView;
+export default BendedView;

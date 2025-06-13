@@ -5,12 +5,12 @@ import AboutUs from '@/pages/public/AboutUs';
 import ContactUs from '@/pages/public/ContactUs';
 import Careers from '@/pages/public/Careers';
 import Products from '@/pages/public/Products';
-import RoofingView from '@/pages/public/RoofingView';
+import RoofingView from '@/pages/public/product-views/RoofingView';
 import QuotationForm from '@/pages/public/QuotationForm';
-import DeckingView from '@/pages/public/DeckingView';
-import BendedView from '@/pages/public/BendedView';
-import LightFramesView from '@/pages/public/LightFramesView';
-import SpandrelView from '@/pages/public/SpandrelView';
+import DeckingView from '@/pages/public/product-views/DeckingView';
+import BendedView from '@/pages/public/product-views/BendedView';
+import LightFramesView from '@/pages/public/product-views/LightFramesView';
+import SpandrelView from '@/pages/public/product-views/SpandrelView';
 
 function AppRouter() {
   return (
@@ -25,7 +25,7 @@ function AppRouter() {
         <Route path="/rib-type/:id" element={<RoofingView />} />
         <Route path="/tilespan/:id" element={<RoofingView />} />
         <Route path="/corrugated/:id" element={<RoofingView />} />
-        <Route path="/bended/:id" element={<BendedView />} />
+        <Route path="/bended accessories/:id" element={<BendedView />} />
         <Route path="/decking/:id" element={<DeckingView />} />
         <Route path="/light frames/:id" element={<LightFramesView />} />
         <Route path="/spandrel/:id" element={<SpandrelView />} />
