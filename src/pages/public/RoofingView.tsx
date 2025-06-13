@@ -4,14 +4,14 @@ import { FaFileAlt, FaPalette, FaRuler, FaShieldAlt, FaInfoCircle, FaChevronRigh
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { roofingCorr, roofingRib, roofingTile } from '../../constants';
 import { Button, RelatedProducts, FeaturedProducts, ImageCarousel, FullPageLoader, Link } from '../../components';
-import type { TRoofingProduct } from '../../types/products';
-import { getRandomItems } from '../../composables';
+import type { TRoofingProductData } from '../../types/products';
+import { getRelatedProducts, getProductById } from '../../composables';
 
 const RoofingView = () => {
   const { id } = useParams<{ id: string }>();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [product, setProduct] = useState<TRoofingProduct | null>(null);
-  const [relatedProducts, setRelatedProducts] = useState<TRoofingProduct[]>([]);
+  const [product, setProduct] = useState<TRoofingProductData | null>(null);
+  const [relatedProducts, setRelatedProducts] = useState<TRoofingProductData[]>([]);
   const navigate = useNavigate();
   
   useEffect(() => {
@@ -26,13 +26,9 @@ const RoofingView = () => {
       return;
     }
     const allProducts = [...roofingCorr, ...roofingRib, ...roofingTile];
-    const foundProduct = allProducts.find((p: TRoofingProduct) => p.id === id);
+    const foundProduct = getProductById(allProducts, id);
     if (foundProduct) {
-      const modifiedProduct = {
-        ...foundProduct,
-        images: foundProduct.images.map((img: string) => img.replace('./', '/'))
-      };
-      setProduct(modifiedProduct);
+      setProduct(foundProduct as TRoofingProductData);
     } else {
       console.error('Product not found');
     }
@@ -40,13 +36,9 @@ const RoofingView = () => {
 
   const fetchRelatedProducts = () => {
     const allProducts = [...roofingCorr, ...roofingRib, ...roofingTile];
-    const filteredProducts = allProducts.filter((p: TRoofingProduct) => p.id !== id);
-    const randomProducts = getRandomItems(filteredProducts, 3);
-    const modifiedRelatedProducts = randomProducts.map((product: TRoofingProduct) => ({
-      ...product,
-      images: product.images.map((img: string) => img.replace('./', '/'))
-    }));
-    setRelatedProducts(modifiedRelatedProducts);
+    const filteredProducts = allProducts.filter((p: TRoofingProductData) => p.id !== id);
+    const relatedProducts = getRelatedProducts(filteredProducts, id || '', 3);
+    setRelatedProducts(relatedProducts as TRoofingProductData[]);
   };
 
   const nextImage = () => {
@@ -60,6 +52,7 @@ const RoofingView = () => {
   if (!product) {
     return <FullPageLoader title="Loading product details..." />;
   }
+  
   return (
     <div className="min-h-screen bg-gray-100 relative overflow-hidden py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 my-2">

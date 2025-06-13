@@ -4,22 +4,13 @@ import { FaHardHat, FaChevronRight, FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { roofingCorr, roofingRib, roofingTile, decking, lightFrames, spandrel, bended } from '../../constants';
-
 import FeaturedProduct from '../../components/page/FeaturedProduct';
-
-interface Product {
-  id: string;
-  name: string;
-  type: string;
-  description: string;
-  images: string[];
-  category?: string;
-}
+import type { TProductData } from '../../types/products';
 
 const Products = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<TProductData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [categoryLoading, setCategoryLoading] = useState<boolean>(false);
@@ -39,7 +30,8 @@ const Products = () => {
         ...(Array.isArray(roofingTile) ? roofingTile : [roofingTile])
       ].map(product => ({
         ...product,
-        category: 'Roofing'
+        category: 'Roofing',
+        image: product.images
       }));
 
       const allProducts = [
@@ -48,7 +40,13 @@ const Products = () => {
         ...(Array.isArray(lightFrames) ? lightFrames : [lightFrames]),
         ...(Array.isArray(spandrel) ? spandrel : [spandrel]),
         ...(Array.isArray(bended) ? bended : [bended])
-      ] as Product[];
+      ].map(product => {
+        const { images, ...rest } = product as any;
+        return {
+          ...rest,
+          image: images
+        } as TProductData;
+      });
 
       setProducts(allProducts);
       setLoading(false);
@@ -123,7 +121,7 @@ const Products = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 relative overflow-hidden py-20">
+    <div className="min-h-screen bg-gray-100 relative overflow-hidden py-20 my-2">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row">
           <div className="w-full md:w-1/4 pr-0 md:pr-8 mb-8 md:mb-0">
@@ -192,7 +190,7 @@ const Products = () => {
                       >
                         <div className="w-full aspect-square overflow-hidden bg-gray-200">
                           <img 
-                            src={product.images[0]} 
+                            src={product.image[0]} 
                             alt={product.name} 
                             loading="lazy"
                             className="w-full h-full object-contain transition-opacity duration-300"
