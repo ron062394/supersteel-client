@@ -1,9 +1,10 @@
 import { useEffect, useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import { FaHardHat, FaHome, FaRecycle, FaRuler, FaWrench, FaDoorOpen, FaSolarPanel, FaLeaf, FaChevronRight } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
 import type { IconType } from 'react-icons';
+import { Button} from '../../../components';
 
 interface Solution {
   title: string;
@@ -14,6 +15,7 @@ interface Solution {
 }
 
 const Solutions = () => {
+  const navigate = useNavigate();
   const controls = useAnimation();
   const [ref, inView] = useInView({
     threshold: 0.1,
@@ -172,12 +174,14 @@ const Solutions = () => {
                 <div>
                   <h3 className="text-lg sm:text-2xl font-semibold text-gray-900 mb-2 sm:mb-4">{solutions[activeTab].title}</h3>
                   <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">{solutions[activeTab].description}</p>
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <Link to="/contact" className="bg-[#F71F27] text-white px-4 py-2 sm:px-6 rounded-full font-semibold hover:bg-red-700 transition duration-300 inline-flex items-center text-sm sm:text-base">
-                      Contact Us
-                      <FaChevronRight className="ml-2" />
-                    </Link>
-                  </motion.div>
+                  <Button
+                    onClick={() => navigate('/contact')}
+                    variant="primary"
+                    icon={<FaChevronRight />}
+                    size="l"
+                  >
+                    Contact Us
+                  </Button>
                 </div>
               </div>
             </motion.div>
